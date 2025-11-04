@@ -1,0 +1,80 @@
+query FetchCartDiscounts($limit: Int!, $offset: Int!, $sort: [String!]) {
+  cartDiscounts(limit: $limit, offset: $offset, sort: $sort) {
+    total
+    count
+    offset
+    results {
+      id
+      key
+      version
+      nameAllLocales {
+        locale
+        value
+      }
+      descriptionAllLocales {
+        locale
+        value
+      }
+      value {
+        type
+        ... on RelativeDiscountValue {
+          permyriad
+        }
+        ... on AbsoluteDiscountValue {
+          money {
+            currencyCode
+            centAmount
+          }
+        }
+        ... on FixedPriceDiscountValue {
+          money {
+            currencyCode
+            centAmount
+          }
+        }
+        ... on GiftLineItemValue {
+          productRef {
+            id
+          }
+          variantId
+        }
+      }
+      cartPredicate
+      target {
+        type
+        ... on LineItemsTarget {
+          predicate
+        }
+        ... on CustomLineItemsTarget {
+          predicate
+        }
+        ... on ShippingTarget {
+          __typename
+        }
+        ... on MultiBuyLineItemsTarget {
+          predicate
+          triggerQuantity
+          discountedQuantity
+          maxOccurrence
+          selectionMode
+        }
+        ... on MultiBuyCustomLineItemsTarget {
+          predicate
+          triggerQuantity
+          discountedQuantity
+          maxOccurrence
+          selectionMode
+        }
+      }
+      sortOrder
+      isActive
+      requiresDiscountCode
+      validFrom
+      validUntil
+      stackingMode
+      createdAt
+      lastModifiedAt
+    }
+  }
+}
+

@@ -1,0 +1,43 @@
+query FetchProductDiscounts($limit: Int!, $offset: Int!, $sort: [String!]) {
+  productDiscounts(limit: $limit, offset: $offset, sort: $sort) {
+    total
+    count
+    offset
+    results {
+      id
+      key
+      version
+      nameAllLocales {
+        locale
+        value
+      }
+      descriptionAllLocales {
+        locale
+        value
+      }
+      value {
+        type
+        ... on RelativeDiscountValue {
+          permyriad
+        }
+        ... on AbsoluteDiscountValue {
+          money {
+            currencyCode
+            centAmount
+          }
+        }
+        ... on ExternalDiscountValue {
+          __typename
+        }
+      }
+      predicate
+      sortOrder
+      isActive
+      validFrom
+      validUntil
+      createdAt
+      lastModifiedAt
+    }
+  }
+}
+

@@ -1,0 +1,39 @@
+import { PERMISSIONS, entryPointUriPath } from './src/constants';
+
+/**
+ * @type {import('@commercetools-frontend/application-config').ConfigOptionsForCustomApplication}
+ */
+const config = {
+  name: 'Discounts Overview',
+  entryPointUriPath: '${env:ENTRY_POINT_URI_PATH}',
+  cloudIdentifier: 'gcp-us',
+  env: {
+    production: {
+      applicationId: '${env:CUSTOM_APPLICATION_ID}',
+      url: '${env:APPLICATION_URL}',
+    },
+    development: {
+      initialProjectKey: '${env:INITIAL_PROJECT_KEY}',
+    },
+  },
+  oAuthScopes: {
+    view: ['view_products', 'view_cart_discounts'],
+    manage: ['manage_products', 'manage_cart_discounts'],
+  },
+  icon: '${path:@tabler/icons/outline/discount.svg}',
+  mainMenuLink: {
+    defaultLabel: 'Template starter',
+    labelAllLocales: [],
+    permissions: [PERMISSIONS.View],
+  },
+  submenuLinks: [
+    {
+      uriPath: 'channels',
+      defaultLabel: 'Channels',
+      labelAllLocales: [],
+      permissions: [PERMISSIONS.View],
+    },
+  ],
+};
+
+export default config;
