@@ -44,7 +44,7 @@ const columns = [
   { key: 'name', label: 'Name' },
   { key: 'key', label: 'Key', isSortable: true },
   { key: 'type', label: 'Type' },
-  { key: 'isActive', label: 'Active' },
+  { key: 'isActive', label: 'Active', isSortable: true },
   { key: 'validFrom', label: 'Valid From' },
   { key: 'validUntil', label: 'Valid To' },
   { key: 'createdAt', label: 'Date Created', isSortable: true },
