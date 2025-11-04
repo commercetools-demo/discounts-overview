@@ -4,7 +4,7 @@ import { PERMISSIONS, entryPointUriPath } from './src/constants';
  * @type {import('@commercetools-frontend/application-config').ConfigOptionsForCustomApplication}
  */
 const config = {
-  name: 'Discounts Overview',
+  name: 'Discounts overview',
   entryPointUriPath: '${env:ENTRY_POINT_URI_PATH}',
   cloudIdentifier: 'gcp-us',
   env: {
@@ -20,20 +20,12 @@ const config = {
     view: ['view_products', 'view_cart_discounts'],
     manage: ['manage_products', 'manage_cart_discounts'],
   },
-  icon: '${path:@tabler/icons/outline/discount.svg}',
+  icon: '${path:@tabler/icons/filled/discount.svg}',
   mainMenuLink: {
-    defaultLabel: 'Template starter',
+    defaultLabel: 'Discounts overview',
     labelAllLocales: [],
     permissions: [PERMISSIONS.View],
   },
-  submenuLinks: [
-    {
-      uriPath: 'channels',
-      defaultLabel: 'Channels',
-      labelAllLocales: [],
-      permissions: [PERMISSIONS.View],
-    },
-  ],
 };
 
 export default config;
